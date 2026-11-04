@@ -1,0 +1,30 @@
+# Fails a pull request when model code changes without documentation, when assumption ids or
+# citation keys are unknown, or when the parameter table is malformed. Renders the model_doc book.
+on:
+  pull_request:
+    branches: [main, dev]
+
+name: docs-check
+
+jobs:
+  docs-check:
+    name: docs-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - name: Install R packages for docs
+        run: Rscript -e 'install.packages(c("yaml", "knitr", "rmarkdown"))'
+      - name: Check documentation consistency
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [ "${{ github.base_ref }}" = "main" ]; then STRICT="--strict"; else STRICT=""; fi
+          Rscript tools/check_docs.R --base origin/${{ github.base_ref }} $STRICT
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render model_doc
+        run: quarto render model_doc --to html

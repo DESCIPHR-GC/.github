@@ -1,0 +1,1 @@
+{"name": "DESCIPHR documentation check", "description": "Fails PRs that change model code without documentation; strict mode for releases.", "iconName": "", "categories": ["R"]}

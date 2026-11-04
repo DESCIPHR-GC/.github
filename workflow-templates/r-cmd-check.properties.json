@@ -1,0 +1,1 @@
+{"name": "DESCIPHR R CMD check", "description": "R CMD check on Ubuntu for PRs into dev; macOS and Windows for releases into main.", "iconName": "", "categories": ["R"]}

@@ -1,0 +1,33 @@
+name: Model change
+description: Add or change a state, transition, hazard, modifier, staging rule, intervention, or output.
+labels: ["type:model", "docs"]
+body:
+  - type: markdown
+    attributes:
+      value: "Model changes are documented before they are coded: the math goes into model_doc first."
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: math
+    attributes:
+      label: Mathematical description (draft)
+      description: Hazard, cumulative hazard, how it is sampled, competing risks, modifiers. LaTeX welcome.
+  - type: textarea
+    id: assumptions
+    attributes:
+      label: Assumptions and evidence
+      description: New or changed assumptions (A-ids), rationale, and citations. Write CITATION NEEDED if missing.
+    validations:
+      required: true
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Affects
+      options:
+        - label: Calibration targets or priors
+        - label: Random number use (new stored draws)
+        - label: Outputs used by cal_val_desciphrgc

@@ -1,0 +1,19 @@
+name: Modeling decision
+description: A decision the team needs to make or has made (recorded later with /spec-change).
+labels: ["type:decision", "spec"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options, with consequences for code, calibration, and documentation
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision (who, when, source)
+      description: Leave empty until decided.

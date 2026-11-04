@@ -1,0 +1,24 @@
+name: Calibration target or input data
+description: A new or revised calibration target, input, or data request.
+labels: ["type:data"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Quantity and definition
+      description: Outcome, site, population, sex, age, H. pylori status, stage system, calendar years (leave blank what does not apply).
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source and provenance
+      description: Citation, table or figure, sampling frame, and whether it may be committed to the repository.
+    validations:
+      required: true
+  - type: textarea
+    id: uncertainty
+    attributes:
+      label: Uncertainty (SE, CI, or denominator)
+    validations:
+      required: true

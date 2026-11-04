@@ -1,0 +1,31 @@
+name: Task
+description: A unit of work for one feature branch and one pull request into dev.
+labels: ["type:task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should exist or be true when this is done?
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      options: [P0, P1, P2, P3, P4, P5, P6, P7, C0, C1, C2, C3, C4, C5, C6, other]
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checklist a reviewer can verify.
+      value: "- [ ] "
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: Spec items, decisions, assumptions, reference code
+      description: e.g. spec natural_history.transitions.NL_CG; D-20261027-6; A-003; simcrc R/04_diagnosis.R
